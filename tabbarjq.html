@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.top{width: 300px;height: 30px;line-height: 30px;background: pink;}
+		.top li{float: left;width: 100px;text-align: center;}
+		.top .active{background: #FF0000;}
+		.bottom{width: 300px;height: 100px;background: #AAAAAA;}
+		.bottom li{display: none;}
+		.bottom .active{display: block;}
+	</style>
+</head>
+<body>
+	<ul class="top">
+		<li class="active">one</li>
+		<li>two</li>
+		<li>three</li>
+	</ul>
+	<ul class="bottom">
+		<li class="active">aaa</li>
+		<li>bbb</li>
+		<li>ccc</li>
+	</ul>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$('.top').on('click','li',function(){
+			$(this).addClass('active').siblings().removeClass('active')
+			$('.bottom li').eq($(this).index()).show().siblings().hide()
+		})
+	</script>
+</body>
+</html>
